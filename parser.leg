@@ -1,0 +1,65 @@
+%{
+#include <linux/kernel.h>
+#include <linux/string.h>
+#include "buffer.h"
+#include "malloc.h"
+#include "parser.h"
+
+/* workaround of peg/leg generated code */
+#define stderr 0
+
+#define YY_INPUT(buf, result, max_size)             \
+{                                                   \
+    int yyc = inbuf_getchar(&expr_buf);             \
+    result = (EOF == yyc) ? 0 : (*(buf) = yyc, 1);  \
+}
+
+#define YYSTYPE long
+
+static int atoi(const char *cp) {
+    long res = 0;
+    strict_strtol(cp, 10, &res);
+    return res;
+} 
+
+int vars[26];
+%}
+
+Stmt	= - e:Expr EOL			{ ring_sprintf32(&result_ring, "%d\n", e); }
+	| ( !EOL . )* EOL		{ ring_sprintf32(&result_ring, "error\n"); }
+
+Expr	= i:ID ASSIGN s:Sum		{ $$= vars[i]= s; }
+	| s:Sum				{ $$= s; }
+
+Sum	= l:Product
+		( PLUS  r:Product	{ l += r; }
+		| MINUS r:Product	{ l -= r; }
+		)*			{ $$= l; }
+
+Product	= l:Value
+		( TIMES  r:Value	{ l *= r; }
+		| DIVIDE r:Value	{ l /= r; }
+		)*			{ $$= l; }
+
+Value	= i:NUMBER			{ $$= atoi(yytext); }
+	| i:ID !ASSIGN			{ $$= vars[i]; }
+	| OPEN i:Expr CLOSE		{ $$= i; }
+
+NUMBER	= < [0-9]+ >	-		{ $$= atoi(yytext); }
+ID	= < [a-z]  >	-		{ $$= yytext[0] - 'a'; }
+ASSIGN	= '='		-
+PLUS	= '+'		-
+MINUS	= '-'		-
+TIMES	= '*'		-
+DIVIDE	= '/'		-
+OPEN	= '('		-
+CLOSE	= ')'		-
+
+-	= [ \t]*
+EOL	= '\n' | '\r\n' | '\r' | ';'
+
+%%
+
+void kcalc_parse(void) {
+    while (yyparse());
+}

@@ -1,0 +1,146 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+INBUF_SIZE	buffer.h	5;"	d
+KVERSION	Makefile	/^KVERSION = $(shell uname -r)$/;"	m
+RING_SIZE	buffer.h	8;"	d
+YYACCEPT	calc.c	219;"	d	file:
+YYPARSE	calc.c	/^YY_PARSE(int) YYPARSE(void)$/;"	f
+YYPARSE	calc.c	27;"	d	file:
+YYPARSEFROM	calc.c	/^YY_PARSE(int) YYPARSEFROM(yyrule yystart)$/;"	f
+YYPARSEFROM	calc.c	30;"	d	file:
+YYRULECOUNT	calc.c	6;"	d	file:
+YYSTYPE	calc.c	52;"	d	file:
+YY_ACTION	calc.c	18;"	d	file:
+YY_BEGIN	calc.c	41;"	d	file:
+YY_END	calc.c	44;"	d	file:
+YY_INPUT	calc.c	33;"	d	file:
+YY_LOCAL	calc.c	15;"	d	file:
+YY_PARSE	calc.c	24;"	d	file:
+YY_RULE	calc.c	21;"	d	file:
+YY_VARIABLE	calc.c	12;"	d	file:
+_KCALC_BUFFER_H_	buffer.h	2;"	d
+_KCALC_PARSER_H_	parser.h	2;"	d
+_inbuf	buffer.h	/^typedef struct _inbuf {$/;"	s
+_yythunk	calc.c	/^typedef struct _yythunk { int begin, end;  yyaction  action;  struct _yythunk *next; } yythunk;$/;"	s	file:
+action	calc.c	/^typedef struct _yythunk { int begin, end;  yyaction  action;  struct _yythunk *next; } yythunk;$/;"	m	struct:_yythunk	file:
+begin	calc.c	/^typedef struct _yythunk { int begin, end;  yyaction  action;  struct _yythunk *next; } yythunk;$/;"	m	struct:_yythunk	file:
+buf	buffer.h	/^    char buf[INBUF_SIZE];$/;"	m	struct:_inbuf
+count	buffer.h	/^    int count;$/;"	m	struct:_inbuf
+e	calc.c	343;"	d	file:
+e	calc.c	346;"	d	file:
+e	calc.c	350;"	d	file:
+e	calc.c	353;"	d	file:
+end	calc.c	/^typedef struct _yythunk { int begin, end;  yyaction  action;  struct _yythunk *next; } yythunk;$/;"	m	struct:_yythunk	file:
+expr_buf	buffer.c	/^inbuf expr_buf = {0};$/;"	v
+i	calc.c	250;"	d	file:
+i	calc.c	253;"	d	file:
+i	calc.c	257;"	d	file:
+i	calc.c	260;"	d	file:
+i	calc.c	264;"	d	file:
+i	calc.c	267;"	d	file:
+i	calc.c	326;"	d	file:
+i	calc.c	330;"	d	file:
+i	calc.c	335;"	d	file:
+i	calc.c	339;"	d	file:
+inbuf	buffer.h	/^} inbuf;$/;"	t	typeref:struct:_inbuf
+inbuf_getchar	buffer.c	/^int inbuf_getchar(inbuf *buf) {$/;"	f
+kcalc_cdev	kcalc.c	/^static struct cdev *kcalc_cdev; \/* dynamically allocated at runtime. *\/$/;"	v	typeref:struct:cdev	file:
+kcalc_class	kcalc.c	/^static struct class *kcalc_class;$/;"	v	typeref:struct:class	file:
+kcalc_dev	kcalc.c	/^static dev_t kcalc_dev;         \/* dynamically assigned at registration. *\/$/;"	v	file:
+kcalc_exit	kcalc.c	/^module_exit(kcalc_exit);$/;"	v
+kcalc_exit	kcalc.c	/^static void __exit kcalc_exit(void) {$/;"	f	file:
+kcalc_fops	kcalc.c	/^static struct file_operations kcalc_fops = {$/;"	v	typeref:struct:file_operations	file:
+kcalc_init	kcalc.c	/^module_init(kcalc_init);$/;"	v
+kcalc_init	kcalc.c	/^static int __init kcalc_init(void) {$/;"	f	file:
+kcalc_open	kcalc.c	/^static int kcalc_open(struct inode *inode, struct file *file) {$/;"	f	file:
+kcalc_read	kcalc.c	/^static ssize_t kcalc_read(struct file *file, char __user *buf,$/;"	f	file:
+kcalc_release	kcalc.c	/^static int kcalc_release(struct inode *inode, struct file *file) {$/;"	f	file:
+kcalc_write	kcalc.c	/^static ssize_t kcalc_write(struct file *file, char __user *buf,$/;"	f	file:
+l	calc.c	272;"	d	file:
+l	calc.c	276;"	d	file:
+l	calc.c	281;"	d	file:
+l	calc.c	285;"	d	file:
+l	calc.c	290;"	d	file:
+l	calc.c	294;"	d	file:
+l	calc.c	299;"	d	file:
+l	calc.c	303;"	d	file:
+l	calc.c	308;"	d	file:
+l	calc.c	312;"	d	file:
+l	calc.c	317;"	d	file:
+l	calc.c	321;"	d	file:
+main	calc.c	/^int main()$/;"	f
+next	calc.c	/^typedef struct _yythunk { int begin, end;  yyaction  action;  struct _yythunk *next; } yythunk;$/;"	m	struct:_yythunk	typeref:struct:_yythunk::_yythunk	file:
+obj-m	Makefile	/^obj-m = kcalc.o$/;"	m
+r	calc.c	271;"	d	file:
+r	calc.c	275;"	d	file:
+r	calc.c	280;"	d	file:
+r	calc.c	284;"	d	file:
+r	calc.c	289;"	d	file:
+r	calc.c	293;"	d	file:
+r	calc.c	298;"	d	file:
+r	calc.c	302;"	d	file:
+r	calc.c	307;"	d	file:
+r	calc.c	311;"	d	file:
+r	calc.c	316;"	d	file:
+r	calc.c	320;"	d	file:
+result_ring	buffer.c	/^ring result_ring = {0};$/;"	v
+ring_sprintf	buffer.c	/^int ring_sprintf(ring *buf, const char *fmt, ...) {$/;"	f
+rpos	buffer.h	/^    int rpos;$/;"	m	struct:_inbuf
+s	calc.c	325;"	d	file:
+s	calc.c	329;"	d	file:
+s	calc.c	334;"	d	file:
+s	calc.c	338;"	d	file:
+vars	calc.c	/^int vars[26];$/;"	v
+yyAccept	calc.c	/^YY_LOCAL(int) yyAccept(int tp0)$/;"	f
+yyCommit	calc.c	/^YY_LOCAL(void) yyCommit()$/;"	f
+yyDo	calc.c	/^YY_LOCAL(void) yyDo(yyaction action, int begin, int end)$/;"	f
+yyDone	calc.c	/^YY_LOCAL(void) yyDone(void)$/;"	f
+yyPop	calc.c	/^YY_LOCAL(void) yyPop(char *text, int count)	{ yyval -= count; }$/;"	f
+yyPush	calc.c	/^YY_LOCAL(void) yyPush(char *text, int count)	{ yyval += count; }$/;"	f
+yySet	calc.c	/^YY_LOCAL(void) yySet(char *text, int count)	{ yyval[count]= yy; }$/;"	f
+yyText	calc.c	/^YY_LOCAL(int) yyText(int begin, int end)$/;"	f
+yy_1_Expr	calc.c	/^YY_ACTION(void) yy_1_Expr(char *yytext, int yyleng)$/;"	f
+yy_1_ID	calc.c	/^YY_ACTION(void) yy_1_ID(char *yytext, int yyleng)$/;"	f
+yy_1_NUMBER	calc.c	/^YY_ACTION(void) yy_1_NUMBER(char *yytext, int yyleng)$/;"	f
+yy_1_Product	calc.c	/^YY_ACTION(void) yy_1_Product(char *yytext, int yyleng)$/;"	f
+yy_1_Stmt	calc.c	/^YY_ACTION(void) yy_1_Stmt(char *yytext, int yyleng)$/;"	f
+yy_1_Sum	calc.c	/^YY_ACTION(void) yy_1_Sum(char *yytext, int yyleng)$/;"	f
+yy_1_Value	calc.c	/^YY_ACTION(void) yy_1_Value(char *yytext, int yyleng)$/;"	f
+yy_2_Expr	calc.c	/^YY_ACTION(void) yy_2_Expr(char *yytext, int yyleng)$/;"	f
+yy_2_Product	calc.c	/^YY_ACTION(void) yy_2_Product(char *yytext, int yyleng)$/;"	f
+yy_2_Stmt	calc.c	/^YY_ACTION(void) yy_2_Stmt(char *yytext, int yyleng)$/;"	f
+yy_2_Sum	calc.c	/^YY_ACTION(void) yy_2_Sum(char *yytext, int yyleng)$/;"	f
+yy_2_Value	calc.c	/^YY_ACTION(void) yy_2_Value(char *yytext, int yyleng)$/;"	f
+yy_3_Product	calc.c	/^YY_ACTION(void) yy_3_Product(char *yytext, int yyleng)$/;"	f
+yy_3_Sum	calc.c	/^YY_ACTION(void) yy_3_Sum(char *yytext, int yyleng)$/;"	f
+yy_3_Value	calc.c	/^YY_ACTION(void) yy_3_Value(char *yytext, int yyleng)$/;"	f
+yy_ASSIGN	calc.c	/^YY_RULE(int) yy_ASSIGN()$/;"	f
+yy_CLOSE	calc.c	/^YY_RULE(int) yy_CLOSE()$/;"	f
+yy_DIVIDE	calc.c	/^YY_RULE(int) yy_DIVIDE()$/;"	f
+yy_EOL	calc.c	/^YY_RULE(int) yy_EOL()$/;"	f
+yy_Expr	calc.c	/^YY_RULE(int) yy_Expr()$/;"	f
+yy_ID	calc.c	/^YY_RULE(int) yy_ID()$/;"	f
+yy_MINUS	calc.c	/^YY_RULE(int) yy_MINUS()$/;"	f
+yy_NUMBER	calc.c	/^YY_RULE(int) yy_NUMBER()$/;"	f
+yy_OPEN	calc.c	/^YY_RULE(int) yy_OPEN()$/;"	f
+yy_PLUS	calc.c	/^YY_RULE(int) yy_PLUS()$/;"	f
+yy_Product	calc.c	/^YY_RULE(int) yy_Product()$/;"	f
+yy_Stmt	calc.c	/^YY_RULE(int) yy_Stmt()$/;"	f
+yy_Sum	calc.c	/^YY_RULE(int) yy_Sum()$/;"	f
+yy_TIMES	calc.c	/^YY_RULE(int) yy_TIMES()$/;"	f
+yy_Value	calc.c	/^YY_RULE(int) yy_Value()$/;"	f
+yy__	calc.c	/^YY_RULE(int) yy__()$/;"	f
+yyaction	calc.c	/^typedef void (*yyaction)(char *yytext, int yyleng);$/;"	t	file:
+yymatchChar	calc.c	/^YY_LOCAL(int) yymatchChar(int c)$/;"	f
+yymatchClass	calc.c	/^YY_LOCAL(int) yymatchClass(unsigned char *bits)$/;"	f
+yymatchDot	calc.c	/^YY_LOCAL(int) yymatchDot(void)$/;"	f
+yymatchString	calc.c	/^YY_LOCAL(int) yymatchString(char *s)$/;"	f
+yyprintf	calc.c	47;"	d	file:
+yyprintf	calc.c	49;"	d	file:
+yyrefill	calc.c	/^YY_LOCAL(int) yyrefill(void)$/;"	f
+yyrule	calc.c	/^typedef int (*yyrule)();$/;"	t	file:
+yythunk	calc.c	/^typedef struct _yythunk { int begin, end;  yyaction  action;  struct _yythunk *next; } yythunk;$/;"	t	typeref:struct:_yythunk	file:
