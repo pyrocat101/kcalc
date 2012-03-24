@@ -2,7 +2,7 @@
  * kcalc.c - A character device that can be used for 
  * basic arithmetic calculation.
  *
- * Copyright (C) 2012 Linjie Ding <i [at] dingstyle.me>
+ * Copyright (C) 2012 Linjie Ding <i[at]dingstyle.me>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -86,9 +86,21 @@ static int kcalc_release(struct inode *inode, struct file *file) {
 static ssize_t kcalc_read(struct file *file, char __user *buf,
                           size_t count, loff_t *ppos) {
     ssize_t bytes = count;
+    /*
+     *int i;
+     */
 
     if (count > result_ring.count)
         bytes = result_ring.count;
+
+    /*
+     *printk("result_ring:\n");
+     *printk("head: %d, count: %d\n", result_ring.head, result_ring.count);
+     *for (i = 0; i < result_ring.count; i++) {
+     *    printk("%c", result_ring.buf[(result_ring.head + i) % RING_SIZE]);
+     *}
+     *printk("\n");
+     */
     
     if (result_ring.head + bytes >= RING_SIZE) {
         ssize_t fst = RING_SIZE - result_ring.head, rst = bytes - fst;
@@ -102,7 +114,8 @@ static ssize_t kcalc_read(struct file *file, char __user *buf,
         result_ring.head = (result_ring.head + bytes) % RING_SIZE;
         result_ring.count -= bytes;
     } else {
-        if (copy_to_user((void __user *)buf, result_ring.buf, bytes))
+        if (copy_to_user((void __user *)buf,
+                    (void *)(result_ring.buf + result_ring.head), bytes))
             return -EFAULT;
         result_ring.head = result_ring.head + bytes;
         result_ring.count -= bytes;
@@ -122,15 +135,25 @@ static ssize_t kcalc_read(struct file *file, char __user *buf,
 static ssize_t kcalc_write(struct file *file, const char __user *buf,
                            size_t count, loff_t *ppos) {
     size_t bytes = count;
+    /*
+     *int i;
+     */
 
     /* truncate at data longer than INBUF_SIZE */
     if (count > INBUF_SIZE)
         bytes = INBUF_SIZE;
 
+    /*
+     *for (i = 0; i < bytes; i++) {
+     *    printk(KERN_INFO "%c", ((char *)buf)[i]);
+     *}
+     */
+
     if (copy_from_user((void *)(expr_buf.buf),
                 (const void __user *)buf, bytes))
         return -EFAULT;
 
+    expr_buf.count += bytes;
     *ppos += bytes;
 
     /* evaluate expressions and put the resuolt in the output ring */
@@ -173,7 +196,6 @@ static int __init kcalc_init(void) {
         goto error;
     }
     device_create(kcalc_class, NULL, kcalc_dev, NULL, "kcalc");
-    printk(KERN_INFO "KKK! my dev id %d, %d\n", MAJOR(kcalc_dev), MINOR(kcalc_dev));
 
     return 0;
 
@@ -202,6 +224,6 @@ module_exit(kcalc_exit);
 
 /* define module meta data */
 
-MODULE_AUTHOR("Linjie Ding <i [at] dingstyle.me>");
+MODULE_AUTHOR("Linjie Ding <i[at]dingstyle.me>");
 MODULE_DESCRIPTION("A character device providing simple arithmetic calculation function.");
 MODULE_LICENSE("GPL v2");

@@ -26,6 +26,10 @@ int ring_sprintf32(ring *buf, const char *fmt, ...) {
 
     /* copy chars in temp buffer into the ring */
     copy_start = (buf->head + buf->count) % RING_SIZE;
+    /*
+     *printk("copy start: %d\n", copy_start);
+     *printk("sprintf: %s\n", tmp_buf);
+     */
     for (j = 0; j < i; j++) {
         buf->buf[copy_start] = tmp_buf[j];
         if (RING_SIZE == buf->count)

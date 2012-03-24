@@ -1,5 +1,5 @@
 obj-m := kcalc.o
-kcalc-objs := parser.o buffer.o malloc.o
+kcalc-objs := main.o parser.o buffer.o malloc.o
 
 KVERSION = $(shell uname -r)
 all:
